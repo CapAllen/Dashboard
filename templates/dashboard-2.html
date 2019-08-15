@@ -1,0 +1,452 @@
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no" />
+  
+  
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#49CEFF">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#49CEFF" />
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/animate.css/animate.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/metisMenu/dist/metisMenu.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/Waves/dist/waves.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/toastr/toastr.css') }}">
+
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/datatables/media/css/jquery.dataTables.min.css') }}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  
+  <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+<!--
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+-->
+    <!--[if lt IE 9]>
+      <script src="bower_components/html5shiv/dist/html5shiv.min,js"></script>
+      <script src="bower_components/respondJs/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body >
+  <!--Preloader-->
+<div id="preloader" >
+      <div class="refresh-preloader"><div class="preloader"><i>.</i><i>.</i><i>.</i></div></div>
+</div>
+
+
+<div class="wrapper">
+   <nav class="navbar">
+
+  <div class="navbar-container clearfix">
+    <div class="pull-left">
+      <a href="#" class="page-title text-uppercase">初升高志愿填报数据监测-v1.0</a>
+    </div>
+    <div class="pull-right">
+      <a href="#" class="page-title text-uppercase" >Proudly Present by StudyPlus</a>
+
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+              <div>
+                 
+                  <span class="label label-lg label-info">浏览:{{ scan_user }}</span>
+                  <span class="label label-lg label-success">注册:{{ subscribers }}</span>
+                  <span class="label label-lg label-default">黑名单:{{ blacklist }}</span>
+
+                  <span class="label label-lg label-primary">查看学校列表:{{ number_list[0] }}</span>
+                  <span class="label label-lg label-warning">查看文章列表:{{ number_list[1] }}</span>
+                  <span class="label label-lg label-danger">查看定向首页:{{ number_list[4] }}</span>
+                  <span class="label label-lg label-default">查看统招首页:{{ number_list[5] }}</span>
+                  <span class="label label-lg label-primary">查看统招志愿:{{ number_list[7] }}</span>
+
+                </div>
+            </div>
+          </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="content-box">
+            <div class="head head-with-btns clearfix">
+              <!-- <h5 class="content-title text-color pull-left">Total sales statistics</h5> -->
+    
+              <div class="functions-btns pull-right">
+                
+                <button type="button" class="btn btn-default btn-info">
+                 Day
+                </button>
+      
+                <button type="button" class="btn btn-default">
+                 HalfDay
+                </button>
+                <button type="button" class="btn btn-default">
+                 Hour
+                </button>
+              </div>
+              <div class="functions-btns pull-left">
+                  <a class="refresh-btn text-color" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                </div>
+            </div>
+             <div >
+               <div class="content">{{ count_user_D_graph }}</div>
+               <div class="content">{{ count_user_HD_graph }}</div>
+               <div class="content">{{ count_user_H_graph }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="row">
+      <div class="col-lg-12">
+          <div class="content-box">
+            <div class="head clearfix">
+              <!-- <h5 class="content-title text-color pull-left">Best selling products</h5> -->
+            
+              <div class="functions-btns pull-right">
+                <a class="refresh-btn text-color" href="#"><i class="zmdi zmdi-refresh"></i></a>
+              </div>
+            </div>
+            <!-- Inline styles for content used only for demo-->
+            <div class="content" style="min-height: 273px;">
+                
+              <div class="row">
+                <div class='same_row'>{{ juni_rate_graph }}</div>
+                <div class='same_row'>{{ category_rate_graph }}</div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+          <div class="content-box">
+              <div class='same_row'>
+                {% for school_detail_chart in school_detail_pies %}
+                  <div class="linkage_1">{{ school_detail_chart }}</div>
+                {% endfor %}
+              </div>
+              <div class='same_row'>
+                {% for compare_school_first_chart in compare_school_first_pies %}
+                <div class="linkage_2">{{ compare_school_first_chart }}</div>
+              {% endfor %}
+            </div>
+
+              <div class='same_row'>
+              {% for compare_school_second_chart in compare_school_second_pies %}
+              <div class="linkage_3">{{ compare_school_second_chart }}</div>
+            {% endfor %}
+          </div>
+
+            <div class='same_row'>
+            {% for dingxiang_chart in dingxiang_pies %}
+            <div class="linkage_4">{{ dingxiang_chart }}</div>
+            {% endfor %}
+          </div>
+          <div id="linkage_main"  style="width: 1750px;height:320px;"></div>
+        </div>
+      </div>
+    </div>
+      
+      <div class="row">
+      <div class="col-lg-12">
+          <div class="content-box">
+              <div class="head clearfix">
+                <form method="GET">
+                  <select name="a" id="a"></select> 
+                  <select name="b" id="b"></select>
+               <button type="submit" class="btn btn-sm btn-info">提交</button>
+               </form>
+                <div class="functions-btns pull-right">
+                    <a class="refresh-btn text-color" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                  </div>
+                </div>
+            <div class="content" style="min-height: 273px;">
+                <div>
+                  {{ Score_Graph }}
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="content-box">
+                    <div class="head clearfix">
+                      
+                      <div class="functions-btns pull-right">
+                        <a class="refresh-btn text-color" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                      </div>
+
+                    </div>
+                    <div>
+                      {{ Sankey_Graph }}
+                    </div>
+                  </div>
+       </div>
+        
+       <div class="row">
+          <div class="col-lg-12">
+              <div class="content-box">
+                <div class="head clearfix">
+                  <!-- <h5 class="content-title text-color pull-left">Best selling products</h5> -->
+                  <div class="functions-btns pull-right">
+                    <a class="refresh-btn text-color" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                  </div>
+                </div>
+                <!-- Inline styles for content used only for demo-->
+                <div class="content" style="min-height: 273px;">
+                  <div class='same_row'>
+                    {{ Relation_Graph }}
+                  </div>
+                  <!-- <div class='same_row'>
+                    <img src="{{url_for('static',filename='img/Graph_legend.png')}}" width="200"/>    
+                  </div> -->
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-12">
+                    <div class="content-box">
+                      <div class="head clearfix">
+                        <!-- <h5 class="content-title text-color pull-left">Best selling products</h5> -->
+                      
+                        <div class="functions-btns pull-right">
+                          <a class="refresh-btn text-color" href="#"><i class="zmdi zmdi-refresh"></i></a>
+                        </div>
+                      </div>
+                      <!-- Inline styles for content used only for demo-->
+                      <div class="content" style="min-height: 273px;">
+                          
+                        <div class="row">
+                          <div>
+                          <div class='same_row'>{{ DX_Distance_Graph }}</div>
+                          <div class='same_row'>{{ FF_Distance_Graph }}</div>
+                          <div class='same_row'>{{ FS_Distance_Graph }}</div>
+                          </div>
+                          <div>
+                          <div class='same_row'>{{ SF_Distance_Graph }}</div>
+                          <div class='same_row'>{{ SS_Distance_Graph }}</div>
+                          <div class='same_row'>{{ ST_Distance_Graph }}</div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+      <div class="row">
+        <div class="col-md-12">
+            <div class="data-white" >
+                <table id="table2" class="display datatable">
+                  <thead>
+                    <tr>
+                      <th>注册时间</th>
+                      <th>行政区</th>
+                      <th>初中</th>
+                      <th>考生类别</th>
+                      <th>分数</th>
+                      <th>定向高中</th>
+                      <th>一批一志愿</th>
+                      <th>一批二志愿</th>
+                      <th>二批一志愿</th>
+                      <th>二批二志愿</th>
+                      <th>二批三志愿</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <ul class="list-group">
+                          {% for item in all_data %}     
+                          <tr>
+                              <td class="info-color">{{ item.date_joined }}</td>
+                              <td>{{ item.district }}</td>
+                              <td class="info-color">{{ item.school }}</td>
+                              <td>{{ item.category }}</td>
+                              <td>{{ item.score }}</td>
+                              <td>{{ item.highschool }}</td>
+                              <td>{{ item.volunteer_1 }}</td>
+                              <td>{{ item.volunteer_2 }}</td>
+                              <td>{{ item.volunteer_3 }}</td>
+                              <td>{{ item.volunteer_4 }}</td>
+                              <td>{{ item.volunteer_5 }}</td>
+                          </tr>
+                          {% endfor %}
+                      </ul>
+                      </tbody>
+                </table>
+                </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+    <footer class="page-footer">Copyright &copy; 2019.StudyPlus All Rights Reserved.</footer>
+  </div>
+
+
+    
+  <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/metisMenu/dist/metisMenu.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/Waves/dist/waves.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/toastr/toastr.js') }}"></script>
+
+
+  <script src="{{ url_for('static', filename='bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/datatables.net-responsive/js/dataTables.responsive.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='bower_components/Chart.js/Chart.js') }}"></script>
+  <script src="{{ url_for('static', filename='bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js') }}"></script>
+
+  <script src="js/test.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('linkage_main'));
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+          text: '用户分时点击量统计'
+      },
+        legend: {},
+        tooltip: {
+            trigger: 'axis',
+            // showContent: false
+        },
+        dataset: {
+            source: {{ data|safe }}
+        },
+        xAxis: {type: 'category'},
+        yAxis: {gridIndex: 0},
+        grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+        series: [
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+            {type: 'line', smooth: true, seriesLayoutBy: 'row'},       
+        ]
+    };
+
+    myChart.setOption(option);
+
+    $("div.linkage_1").first().show().siblings().hide();
+    $("div.linkage_2").first().show().siblings().hide();
+    $("div.linkage_3").first().show().siblings().hide();
+    $("div.linkage_4").first().show().siblings().hide();
+    $("div.linkage_5").first().show().siblings().hide();
+
+    myChart.on('updateAxisPointer', function (event) {
+      var xAxisInfo = event.axesInfo[0];
+        if (xAxisInfo) {
+            var dimension = xAxisInfo.value;
+
+
+          // $(this).addClass('btn-info').siblings().removeClass('btn-info');
+          
+          // var index=$(this).index();
+
+          $("div.linkage_1").eq(dimension).show().siblings().hide();
+          $("div.linkage_2").eq(dimension).show().siblings().hide();
+          $("div.linkage_3").eq(dimension).show().siblings().hide();
+          $("div.linkage_4").eq(dimension).show().siblings().hide();
+          $("div.linkage_5").eq(dimension).show().siblings().hide();
+      }});    
+
+</script>
+
+
+  <script>
+    $('#table2').DataTable({
+     "dom": '<"toolbar tool2"><"clear-filter">frtip',
+      info: false,
+      paging: false,
+      responsive: true,
+      "oLanguage": { "sSearch": "" }
+    });
+
+    $("div.tool2").css("padding", "7px 20px").html('<h5 class="content-title text-color">填表用户信息</h5>');
+
+    $('.dataTables_filter input').attr("placeholder", "Search");
+
+  </script>
+
+    
+  
+<!-- 不同频率的用户类别统计 -->
+<script type="text/javascript">
+    $(function () {
+      $("div.content").first().show().siblings().hide();
+        $('.functions-btns button').click(function () {
+            $(this).addClass('btn-info').siblings().removeClass('btn-info');
+//          $('.tab-top li').eq($(this).index()).addClass('active').siblings().removeClass('active');  tab按钮第二种写法
+            
+            var index=$(this).index();
+
+            $("div.content").eq(index).show().siblings().hide();
+        })
+    })
+</script>
+
+
+   <script type="text/javascript">
+    $(document).ready(function(){
+        var cityList;
+        $.ajax({
+            url:"{{ url_for('static',filename='doc/middle_school_json.json') }}",
+            type:"get"
+        }).success(function(data){
+            cityList=data;
+            $("#a").append("<option>--请选择区域--</option>");
+            $("#b").append("<option>--请选择学校--</option>");
+            for(var i= 0,j=cityList.length;i<j;i++){
+                $("#a").append("<option>"+cityList[i].city+"</option>");
+            }
+            $("#a").change(function(e){
+                var changgedCity=this.value;
+                // $("#b").empty();
+                // $("#b").append("<option></option>");
+                for(var i= 0,j=cityList.length;i<j;i++){
+                    if(cityList[i].city==changgedCity){
+                        for(var m= 0,n=cityList[i].country.length;m<n;m++){
+                            $("#b").append("<option>"+cityList[i].country[m].name+"</option>");
+                        }
+                    }
+                }
+            });
+        })
+    });
+</script>
+
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+
+</body>
+</html>

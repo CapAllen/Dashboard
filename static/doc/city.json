@@ -1,0 +1,27 @@
+﻿[
+  {
+    "city":"beijing",
+    "country":[
+      {
+        "name":"haidian"
+      },
+      {
+        "name":"chaoyang"
+      }
+    ]
+  },
+  {
+    "city":"shanghai",
+    "country":[
+      {
+        "name":"pudong"
+      },
+      {
+        "name":"xuhui"
+      },
+      {
+        "name":"jingan"
+      }
+    ]
+  }
+]

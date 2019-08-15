@@ -1,0 +1,497 @@
+.demo-switcher {
+  position: fixed !important;
+  right: 30px;
+  bottom: 30px;
+  z-index: 999999;
+}
+
+.demo-options {
+  z-index: 900;
+  position: fixed;
+  bottom: 80px;
+  max-width: 365px;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  right: 30px;
+  background: #fff;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.15s ease;
+  transition: -webkit-transform 0.15s ease;
+  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, -webkit-transform 0.15s ease;
+  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-height: 800px) {
+  .demo-options {
+    height: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-options {
+    max-width: 270px;
+    height: 300px;
+  }
+}
+
+@media (max-height: 480px) {
+  .demo-options {
+    height: 220px;
+  }
+}
+
+.demo-options.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools, .demo-options.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools {
+  opacity: 1;
+}
+
+.demo-options.active {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.demo-options .demo-body {
+  padding: 20px;
+  background-color: #fff;
+  border-left: 1px solid #eeeeee;
+  color: #616161;
+}
+
+.demo-options .demo-body .option-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.demo-options .demo-color-list {
+  padding: 0 !important;
+  text-align: left;
+  margin: 0 !important;
+  font-size: 0;
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+
+.demo-options .demo-color-list > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.demo-options .demo-color-list li {
+  margin: 1px;
+  padding: 0;
+}
+
+.demo-options .demo-color-list li span {
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  display: block;
+  height: 32px !important;
+  width: 32px !important;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin: 1px;
+}
+
+.demo-options .demo-color-list li span:hover {
+  cursor: pointer;
+}
+
+.demo-options .demo-color-list.text-center {
+  text-align: center;
+}
+
+.demo-options .demo-color-list .demo-cyan {
+  background-color: #00bcd4 !important;
+}
+
+.demo-options .demo-color-list .demo-light-blue {
+  background-color: #03a9f4;
+}
+
+.demo-options .demo-color-list .demo-blue {
+  background-color: #2196f3;
+}
+
+.demo-options .demo-color-list .demo-indigo {
+  background-color: #3f51b5;
+}
+
+.demo-options .demo-color-list .demo-deep-purple {
+  background-color: #673ab7;
+}
+
+.demo-options .demo-color-list .demo-purple {
+  background-color: #9c27b0;
+}
+
+.demo-options .demo-color-list .demo-pink {
+  background-color: #e91e63;
+}
+
+.demo-options .demo-color-list .demo-red {
+  background-color: #e51c23;
+}
+
+.demo-options .demo-color-list .demo-teal {
+  background-color: #009688;
+}
+
+.demo-options .demo-color-list .demo-green {
+  background-color: #4caf50;
+}
+
+.demo-options .demo-color-list .demo-light-green {
+  background-color: #8bc34a;
+}
+
+.demo-options .demo-color-list .demo-lime {
+  background-color: #cddc39;
+}
+
+.demo-options .demo-color-list .demo-yellow {
+  background-color: #ffeb3b;
+}
+
+.demo-options .demo-color-list .demo-amber {
+  background-color: #ffc107;
+}
+
+.demo-options .demo-color-list .demo-orange {
+  background-color: #ff9800;
+}
+
+.demo-options .demo-color-list .demo-deep-orange {
+  background-color: #ff5722;
+}
+
+.demo-options .demo-color-list .demo-info {
+  background-color: #00bcd4;
+}
+
+.demo-options .demo-color-list .demo-midnightblue {
+  background-color: #37474f;
+}
+
+.demo-options .demo-color-list .demo-gray {
+  background-color: #9e9e9e;
+}
+
+.demo-options .demo-color-list .demo-bluegraylight {
+  background-color: #eceff1;
+}
+
+.demo-options .demo-color-list .demo-black {
+  background-color: #424242;
+}
+
+.demo-options .demo-color-list .demo-bluegray {
+  background-color: #607d8b;
+}
+
+.demo-options .demo-color-list .demo-graylight {
+  background-color: #fafafa;
+}
+
+.demo-options .demo-color-list .demo-brown {
+  background-color: #795548;
+}
+
+.demo-options .demo-color-list .demo-bleachedcedar {
+  background-color: #37474f;
+}
+
+.demo-options .demo-color-list .demo-default {
+  background-color: #fff;
+  border: 2px solid #f36c60;
+}
+
+.demo-options .demo-color-list .demo-primary {
+  background-color: #03a9f4;
+}
+
+.demo-options .demo-color-list .demo-success {
+  background-color: #8bc34a;
+}
+
+.demo-options .demo-color-list .demo-danger {
+  background-color: #e51c23;
+}
+
+.demo-options .demo-color-list .demo-warning {
+  background-color: #ffc107;
+}
+
+.demo-options .demo-color-list .demo-info {
+  background-color: #00bcd4;
+}
+
+.demo-options .demo-color-list .demo-inverse {
+  background-color: #757575;
+}
+
+.brand-default .menu-toggle, nav.navbar.navbar-default a, nav.navbar.navbar-default .right-menu > li > a, nav.navbar.navbar-default .searchbox-icon {
+  color: #333;
+}
+
+.brand-cyan, .sidebar-cyan, .navbar-cyan, .navbar-cyan .searchbox-icon, .navbar-cyan .searchbox-submit {
+  background: #00bcd4 !important;
+}
+
+.sidebar-cyan li:hover a, .sidebar-cyan .nav-inside, .sidebar-cyan .nav-inside a {
+  background: #00b3ca !important;
+}
+
+.sidebar-cyan .nav-inside .current-page, .sidebar-cyan .nav-inside li:hover a, .sidebar-cyan .menu-child ul {
+  background: #00aac0 !important;
+}
+
+.brand-light-blue, .sidebar-light-blue, .navbar-light-blue, .navbar-light-blue .searchbox-icon, .navbar-light-blue .searchbox-submit {
+  background: #03a9f4 !important;
+}
+
+.sidebar-light-blue li:hover a, .sidebar-light-blue .nav-inside, .sidebar-light-blue .nav-inside a {
+  background: #03a2ea !important;
+}
+
+.sidebar-light-blue .nav-inside .current-page, .sidebar-light-blue .nav-inside li:hover a, .sidebar-light-blue .menu-child ul {
+  background: #039be0 !important;
+}
+
+.brand-blue, .sidebar-blue, .navbar-blue, .navbar-blue .searchbox-icon, .navbar-blue .searchbox-submit {
+  background: #2196f3 !important;
+}
+
+.sidebar-blue li:hover a, .sidebar-blue .nav-inside, .sidebar-blue .nav-inside a {
+  background: #1791f2 !important;
+}
+
+.sidebar-blue .nav-inside .current-page, .sidebar-blue .nav-inside li:hover a, .sidebar-blue .menu-child ul {
+  background: #0e8df2 !important;
+}
+
+.brand-purple, .sidebar-purple, .navbar-purple, .navbar-purple .searchbox-icon, .navbar-purple .searchbox-submit {
+  background: #9c27b0 !important;
+}
+
+.sidebar-purple li:hover a, .sidebar-purple .nav-inside, .sidebar-purple .nav-inside a {
+  background: #9525a8 !important;
+}
+
+.sidebar-purple .nav-inside .current-page, .sidebar-purple .nav-inside li:hover a, .sidebar-purple .menu-child ul {
+  background: #8d239f !important;
+}
+
+.brand-indigo, .sidebar-indigo, .navbar-indigo, .navbar-indigo .searchbox-icon, .navbar-indigo .searchbox-submit {
+  background: #3f51b5 !important;
+}
+
+.sidebar-indigo li:hover a, .sidebar-indigo .nav-inside, .sidebar-indigo .nav-inside a {
+  background: #3c4ead !important;
+}
+
+.sidebar-indigo .nav-inside .current-page, .sidebar-indigo .nav-inside li:hover a, .sidebar-indigo .menu-child ul {
+  background: #3a4aa6 !important;
+}
+
+.brand-deep-purple, .sidebar-deep-purple, .navbar-deep-purple, .navbar-deep-purple .searchbox-icon, .navbar-deep-purple .searchbox-submit {
+  background: #673ab7 !important;
+}
+
+.sidebar-deep-purple li:hover a, .sidebar-deep-purple .nav-inside, .sidebar-deep-purple .nav-inside a {
+  background: #6338af !important;
+}
+
+.sidebar-deep-purple .nav-inside .current-page, .sidebar-deep-purple .nav-inside li:hover a, .sidebar-deep-purple .menu-child ul {
+  background: #5e35a8 !important;
+}
+
+.brand-pink, .sidebar-pink, .navbar-pink, .navbar-pink .searchbox-icon, .navbar-pink .searchbox-submit {
+  background: #e91e63 !important;
+}
+
+.sidebar-pink li:hover a, .sidebar-pink .nav-inside, .sidebar-pink .nav-inside a {
+  background: #e6175d !important;
+}
+
+.sidebar-pink .nav-inside .current-page, .sidebar-pink .nav-inside li:hover a, .sidebar-pink .menu-child ul {
+  background: #dd1659 !important;
+}
+
+.brand-red, .sidebar-red, .navbar-red, .navbar-red .searchbox-icon, .navbar-red .searchbox-submit {
+  background: #e51c23 !important;
+}
+
+.sidebar-red li:hover a, .sidebar-red .nav-inside, .sidebar-red .nav-inside a {
+  background: #dd1920 !important;
+}
+
+.sidebar-red .nav-inside .current-page, .sidebar-red .nav-inside li:hover a, .sidebar-red .menu-child ul {
+  background: #d4181f !important;
+}
+
+.brand-teal, .sidebar-teal, .navbar-teal, .navbar-teal .searchbox-icon, .navbar-teal .searchbox-submit {
+  background: #009688 !important;
+}
+
+.sidebar-teal li:hover a, .sidebar-teal .nav-inside, .sidebar-teal .nav-inside a {
+  background: #008c7f !important;
+}
+
+.sidebar-teal .nav-inside .current-page, .sidebar-teal .nav-inside li:hover a, .sidebar-teal .menu-child ul {
+  background: #008276 !important;
+}
+
+.brand-green, .sidebar-green, .navbar-green, .navbar-green .searchbox-icon, .navbar-green .searchbox-submit {
+  background: #4caf50 !important;
+}
+
+.sidebar-green li:hover a, .sidebar-green .nav-inside, .sidebar-green .nav-inside a {
+  background: #49a84d !important;
+}
+
+.sidebar-green .nav-inside .current-page, .sidebar-green .nav-inside li:hover a, .sidebar-green .menu-child ul {
+  background: #46a149 !important;
+}
+
+.brand-light-green, .sidebar-light-green, .navbar-light-green, .navbar-light-green .searchbox-icon, .navbar-light-green .searchbox-submit {
+  background: #8bc34a !important;
+}
+
+.sidebar-light-green li:hover a, .sidebar-light-green .nav-inside, .sidebar-light-green .nav-inside a {
+  background: #86c042 !important;
+}
+
+.sidebar-light-green .nav-inside .current-page, .sidebar-light-green .nav-inside li:hover a, .sidebar-light-green .menu-child ul {
+  background: #81bb3e !important;
+}
+
+.brand-orange, .sidebar-orange, .navbar-orange, .navbar-orange .searchbox-icon, .navbar-orange .searchbox-submit {
+  background: #ff9800 !important;
+}
+
+.sidebar-orange li:hover a, .sidebar-orange .nav-inside, .sidebar-orange .nav-inside a {
+  background: #f59200 !important;
+}
+
+.sidebar-orange .nav-inside .current-page, .sidebar-orange .nav-inside li:hover a, .sidebar-orange .menu-child ul {
+  background: #eb8c00 !important;
+}
+
+.brand-deep-orange, .sidebar-deep-orange, .navbar-deep-orange, .navbar-deep-orange .searchbox-icon, .navbar-deep-orange .searchbox-submit {
+  background: #ff5722 !important;
+}
+
+.sidebar-deep-orange li:hover a, .sidebar-deep-orange .nav-inside, .sidebar-deep-orange .nav-inside a {
+  background: #ff4f18 !important;
+}
+
+.sidebar-deep-orange .nav-inside .current-page, .sidebar-deep-orange .nav-inside li:hover a, .sidebar-deep-orange .menu-child ul {
+  background: #ff470e !important;
+}
+
+.brand-bluegray, .sidebar-bluegray, .navbar-bluegray, .navbar-bluegray .searchbox-icon, .navbar-bluegray .searchbox-submit {
+  background: #607d8b !important;
+}
+
+.sidebar-bluegray li:hover a, .sidebar-bluegray .nav-inside, .sidebar-bluegray .nav-inside a {
+  background: #5c7885 !important;
+}
+
+.sidebar-bluegray .nav-inside .current-page, .sidebar-bluegray .nav-inside li:hover a, .sidebar-bluegray .menu-child ul {
+  background: #58727f !important;
+}
+
+.brand-gray, .sidebar-gray, .navbar-gray, .navbar-gray .searchbox-icon, .navbar-gray .searchbox-submit {
+  background: #9e9e9e !important;
+}
+
+.sidebar-gray li:hover a, .sidebar-gray .nav-inside, .sidebar-gray .nav-inside a {
+  background: #999999 !important;
+}
+
+.sidebar-gray .nav-inside .current-page, .sidebar-gray .nav-inside li:hover a, .sidebar-gray .menu-child ul {
+  background: #949494 !important;
+}
+
+.brand-default, .sidebar-default, .navbar-default, .navbar-default .searchbox-icon, .navbar-default .searchbox-submit {
+  background: #fff !important;
+}
+
+.sidebar-default li:hover a, .sidebar-default .nav-inside, .sidebar-default .nav-inside a {
+  background: #fafafa !important;
+}
+
+.sidebar-default .nav-inside .current-page, .sidebar-default .nav-inside li:hover a, .sidebar-default .menu-child ul {
+  background: whitesmoke !important;
+}
+
+.sidebar-default .current-block > a {
+  color: inherit !important;
+}
+
+@media (min-width: 992px) {
+  body.icon-menu .navbar-header.brand-default .icon-logo {
+    background: url(../img/icon_logo_dark.png) no-repeat center center;
+  }
+}
+
+.sidebar-default .profile-sidebar .profile-usertitle, .sidebar-default .profile-sidebar .profile-usertitle .city, .sidebar-default .profile-sidebar .profile-activity {
+  color: inherit !important;
+}
+
+.sidebar-default .current-block > a, .sidebar-default .nav-inside a {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.sidebar-default .nav-inside .current-page {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.sidebar-default li a {
+  color: inherit !important;
+}
+
+.sidebar-default li.active a {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.brand-bleachedcedar, .sidebar-bleachedcedar, .navbar-bleachedcedar, .navbar-bleachedcedar .searchbox-icon, .navbar-bleachedcedar .searchbox-submit {
+  background: #37474f !important;
+}
+
+.sidebar-bleachedcedar li:hover a, .sidebar-bleachedcedar .nav-inside, .sidebar-bleachedcedar .nav-inside a {
+  background: #334249 !important;
+}
+
+.sidebar-bleachedcedar .nav-inside .current-page, .sidebar-bleachedcedar .nav-inside li:hover a, .sidebar-bleachedcedar .menu-child ul {
+  background: #2f3c43 !important;
+}
+
+.brand-brown, .sidebar-brown, .navbar-brown, .navbar-brown .searchbox-icon, .navbar-brown .searchbox-submit {
+  background: #795548 !important;
+}
+
+.sidebar-brown li:hover a, .sidebar-brown .nav-inside, .sidebar-brown .nav-inside a {
+  background: #735144 !important;
+}
+
+.sidebar-brown .nav-inside .current-page, .sidebar-brown .nav-inside li:hover a, .sidebar-brown .menu-child ul {
+  background: #6c4c40 !important;
+}
+
+/*# sourceMappingURL=maps/demo.css.map */
