@@ -3,9 +3,6 @@
 
 - [项目概览](#overview)
 - [文件组成](#components)
-  - [ETL Pipeline](#etl_pipeline)
-  - [ML Pipeline](#ml_pipeline)
-  - [Flask Web App](#flask)
 - [快速开始](#run)
 - [致谢&参考](#credits)
 
