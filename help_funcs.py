@@ -497,7 +497,7 @@ def pre_linkage_data():
     df_nginx[0] = pd.to_datetime(df_nginx[0]).astype(str) + '-' + df_nginx[1].astype(str)
     df_nginx[0] = pd.to_datetime(df_nginx[0],format='%Y-%m-%d-%H')
     df_nginx[0] = df_nginx[0].dt.strftime('%m-%d-%H')
-    df_nginx = df_nginx[(df_nginx[0] > '07-30-00') & (df_nginx[0] < '08-05-00')]
+    # df_nginx = df_nginx[(df_nginx[0] > '07-30-00') & (df_nginx[0] < '08-05-00')]
     
     #准备折线图数据    
     data_for_line = pd.DataFrame(df_nginx.groupby(0)[2].value_counts().sort_index()).rename(columns={2:'count'}).unstack(0)
